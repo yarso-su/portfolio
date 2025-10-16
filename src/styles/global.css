@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-group(*) {
+  animation-duration: 0.2s;
+}
+
+
+:root {
+  --color-contrast: #155dfc;
+
+  --color-primary: white;
+  --color-secondary: #FAFAFA;
+  --color-inverted: black;
+
+  --scrollbar-thumb: rgba(0, 0, 0, 0.4);
+  --scrollbar-track: rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --color-contrast: #2b7fff;
+
+  --color-primary: black;
+  --color-secondary: #111111;
+  --color-inverted: white;
+
+  --scrollbar-thumb: rgba(255, 255, 255, 0.2);
+  --scrollbar-track: rgba(255, 255, 255, 0.1);
+
+}
+
+* {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-contrast: var(--color-contrast);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+}
+
+@layer base {
+  * {
+    @apply border-zinc-300 dark:border-neutral-800 text-zinc-700 dark:text-neutral-300;
+  }
+
+  body {
+    @apply bg-primary;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-black dark:text-white m-0 p-0;
+  }
+}

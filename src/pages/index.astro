@@ -1,0 +1,169 @@
+---
+import ContactForm from '@/components/ContactForm.astro'
+import ProjectCard from '@/components/ProjectCard.astro'
+import Portfolio from '@/layouts/Portfolio.astro'
+import { projects } from '@/lib/constants'
+---
+
+<Portfolio>
+  <section class="mt-4 mb-6 lg:mb-12 mx-auto 2xl:w-[60%] w-[90%]">
+    <h1 class="block">
+      <p
+        class="leading-[1.5] text-lg md:text-2xl font-semibold tracking-tight text-contrast"
+      >
+        Hi, I'm Yeremi Rios
+      </p>
+      <p
+        class="text-black dark:text-white leading-[1.1] text-2xl lg:text-3xl font-semibold tracking-tight"
+      >
+        A Software Developer based in Mexico
+      </p>
+    </h1>
+    <p class="text-sm sm:text-lg md:text-xl mt-2 md:mt-4">
+      Technology enthusiast with a strong background in web development. Ready
+      to take on a <span class="text-black dark:text-white font-semibold"
+        >Full-Stack</span
+      > role. Specialized in frontend technologies, with solid backend experience
+      using TypeScript, Python, and Go.
+    </p>
+  </section>
+  <section class="bg-secondary border-t-[1px]">
+    <div class="mx-auto 2xl:w-[60%] w-[90%] pt-4">
+      <ul class="mt-6 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-3">
+        {
+          projects.map(project => (
+            <li>
+              <ProjectCard content={project} />
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-8 md:mt-14">
+        <h2
+          class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight"
+        >
+          About my Tech Stack 🔥
+        </h2>
+        <div
+          class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-4 md:gap-8 mt-2 md:mt-3"
+        >
+          <div>
+            <p class="md:text-xl text-sm sm:text-lg">
+              I have been shipping high-performance web applications using <strong
+                >Astro + TailwindCSS</strong
+              > as a primary framework. Avoiding the premature use of JavaScript
+              frameworks where there is no need for them.
+            </p>
+            <p class="mt-2 md:text-xl text-sm sm:text-lg">
+              Although I have experience with <strong>Vanilla CSS</strong> and solid
+              experience with
+              <strong>React</strong> (using <strong>Next.js</strong>) and <strong
+                >Svelte-Kit</strong
+              >. With which I have been able to build a variety of highly
+              dynamic web applications.
+            </p>
+          </div>
+          <a
+            href="https://astro.build/"
+            rel="noopener noreferrer nofollow"
+            referrerpolicy="no-referrer"
+            target="_blank"
+            class="rounded-sm h-fit overflow-hidden hover:opacity-60 transition-opacity duration-200 mx-auto border-[1px]"
+            aria-label="Astro - The web framework for content-driven websites"
+          >
+            <img
+              src="/images/astro-cover.webp"
+              alt="Astro - The web framework for content-driven websites"
+              width="500"
+              height="300"
+              loading="lazy"
+              class="w-full xl:w-[300px] h-auto"
+            />
+          </a>
+        </div>
+        <p class="mt-4 md:mt-6 md:text-xl text-sm sm:text-lg">
+          Outside of the Frontend, I have been working with <strong
+            >Node.js</strong
+          >, <strong>Bun</strong> and <strong>Python</strong> building from simple
+          <strong>APIs (RESTful)</strong>
+          to complex <strong>Microservices</strong> and <strong
+            >Serverless</strong
+          > applications (alongside databases like <strong>PostgreSQL</strong>, <strong
+            >MySQL</strong
+          > and <strong>SQLite</strong>).
+        </p>
+      </div>
+      <div
+        class="mt-8 md:mt-12 bg-primary border-[1px] px-6 rounded-sm py-6 md:py-12"
+      >
+        <h2
+          class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight text-center"
+        >
+          Not a DevOps but enrolled in DevOps processes ☁️
+        </h2>
+        <p class="md:text-xl text-sm sm:text-lg mt-4 md:mt-8">
+          From the start, I have been handling <strong
+            >Infrastructure-related</strong
+          >
+          tasks. I have experience working with <strong>AWS</strong>, <strong
+            >Cloudflare</strong
+          > and Containers with <strong>Docker</strong>. I have deep knowledge
+          of <strong>Linux</strong> based systems and feel very comfortable using
+          <strong>CLI</strong> tools.
+        </p>
+        <p class="mt-3 md:text-xl text-sm sm:text-lg">
+          Code isn't all that matters, having these skills I have been able to
+          implement the required changes to achieve the desired outcome.
+        </p>
+      </div>
+      <p class="text-sm sm:text-lg md:text-xl mt-8 md:mt-12">
+        I work primarily with <strong>TypeScript</strong> and <strong
+          >Python</strong
+        > but I have the basics of other languages like <strong>PHP</strong>, <strong
+          >Go</strong
+        > and <strong>Rust</strong>. And I am always looking for new
+        opportunities to learn new technologies.
+      </p>
+
+      <div class="pt-8 md:pt-12 pb-6 md:pb-10">
+        <h2
+          class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight"
+        >
+          Let's connect
+        </h2>
+        <div
+          class="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-4 md:gap-4 mt-2 md:mt-3"
+        >
+          <div>
+            <p class="text-sm sm:text-lg md:text-xl">
+              You can find me on <a
+                href="https://www.linkedin.com/in/yeremi-rios-890347380/"
+                rel="noopener noreferrer nofollow"
+                referrerpolicy="no-referrer"
+                target="_blank"
+                class="underline hover:opacity-60 transition-opacity duration-200"
+                ><strong>LinkedIn</strong></a
+              > and <a
+                href="https://github.com/yarso-su"
+                rel="noopener noreferrer nofollow"
+                referrerpolicy="no-referrer"
+                target="_blank"
+                class="underline hover:opacity-60 transition-opacity duration-200"
+                ><strong>GitHub</strong></a
+              > or you can reach me directly through the next contact form. I check
+              my emails regularly. I am always happy to hear from you.
+            </p>
+            <p class="mt-3 md:text-xl text-sm sm:text-lg">
+              I always welcome new opportunities to collaborate and learn new
+              things 🤓.
+            </p>
+            <p class="mt-3 md:text-xl text-sm sm:text-lg">
+              Cheers, <br />Yarso
+            </p>
+          </div>
+          <ContactForm />
+        </div>
+      </div>
+    </div>
+  </section>
+</Portfolio>
