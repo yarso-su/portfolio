@@ -29,7 +29,12 @@ import { projects } from '@/lib/constants'
   </section>
   <section class="bg-secondary border-t-[1px]">
     <div class="mx-auto 2xl:w-[60%] w-[90%] pt-4">
-      <ul class="mt-6 grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-3">
+      <h2
+        class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight pt-2 md:pt-4"
+      >
+        Things I’ve Built
+      </h2>
+      <ul class="mt-4 grid grid-cols-2 2xl:grid-cols-3 gap-3">
         {
           projects.map(project => (
             <li>
@@ -97,7 +102,7 @@ import { projects } from '@/lib/constants'
         class="mt-8 md:mt-12 bg-primary border-[1px] px-6 rounded-sm py-6 md:py-12"
       >
         <h2
-          class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight text-center"
+          class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight sm:text-center"
         >
           Not a DevOps but enrolled in DevOps processes ☁️
         </h2>
