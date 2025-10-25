@@ -3,6 +3,8 @@ import { ThemeTogglerWrapper } from '@yarso/astro-theme-toggler'
 import Sun from '@lucide/astro/icons/sun'
 import Moon from '@lucide/astro/icons/moon'
 import Button from '@/atoms/Button.astro'
+import Link from '@/atoms/Link.astro'
+import GitHub from '@lucide/astro/icons/github'
 ---
 
 <header
@@ -18,11 +20,21 @@ import Button from '@/atoms/Button.astro'
       <span class="text-black dark:text-white">Yarso.</span>
       <span class="text-contrast">Software Developer</span>
     </a>
-    <ThemeTogglerWrapper>
-      <Button aria-label="Alternar tema">
-        <Sun class="size-3 sm:size-4" />
-        <Moon class="size-3 sm:size-4" />
-      </Button>
-    </ThemeTogglerWrapper>
+    <div class="inline-flex gap-2 items-center">
+      <Link
+        rel="noopener noreferrer nofollow"
+        referrerpolicy="no-referrer"
+        target="_blank"
+        href="https://github.com/yarso-su"
+      >
+        <GitHub class="size-3 sm:size-4" />
+      </Link>
+      <ThemeTogglerWrapper>
+        <Button aria-label="Alternar tema">
+          <Sun class="size-3 sm:size-4" />
+          <Moon class="size-3 sm:size-4" />
+        </Button>
+      </ThemeTogglerWrapper>
+    </div>
   </div>
 </header>
