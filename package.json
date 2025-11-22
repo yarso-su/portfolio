@@ -9,14 +9,14 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^12.6.10",
+    "@astrojs/cloudflare": "^12.6.11",
     "@astrojs/sitemap": "^3.6.0",
     "@lucide/astro": "^0.545.0",
-    "@tailwindcss/vite": "^4.1.16",
+    "@tailwindcss/vite": "^4.1.17",
     "@yarso/astro-theme-toggler": "^1.1.0",
-    "astro": "^5.15.1",
-    "sharp": "^0.34.4",
-    "tailwindcss": "^4.1.16"
+    "astro": "^5.16.0",
+    "sharp": "^0.34.5",
+    "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.10.5",
