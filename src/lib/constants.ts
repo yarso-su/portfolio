@@ -1,47 +1,41 @@
-export const projects: Array<{
+export type Project = {
   title: string
-  tag: string
   description: string
   link: string
-  type: 'package' | 'website' | 'private'
-}> = [
-  {
-    title: 'astro-theme-toggler',
-    tag: 'NPM Package',
-    description:
-      'Lightweight theme toggler utility for Astro with vanilla JavaScript.',
-    link: 'https://github.com/yarso-su/astro-theme-toggler',
-    type: 'package'
-  },
-  {
-    title: 'astro-dropdown',
-    tag: 'NPM Package',
-    description:
-      'Customizable dropdown component for Astro with vanilla JavaScript.',
-    link: 'https://github.com/yarso-su/astro-dropdown',
-    type: 'package'
-  },
+  imageKey?: string
+}
+
+export const projects: Array<Project> = [
   {
     title: 'Technical Blog (ES)',
-    tag: 'Website',
     description:
       'Personal blog covering software engineering and programming concepts.',
     link: 'https://es.yarso.dev',
-    type: 'website'
+    imageKey: 'blog'
   },
   {
     title: 'Jollaadmin',
-    tag: 'Private Project',
     description:
       'Microservices-based system for internal data management and monitoring.',
     link: 'https://residenciallajolla.net',
-    type: 'private'
+    imageKey: 'jollaadmin'
+  }
+]
+
+export const packages: Array<Project> = [
+  {
+    title: 'astro-theme-toggler',
+    description: 'Lightweight theme toggler utility for Astro.',
+    link: 'https://github.com/yarso-su/astro-theme-toggler'
+  },
+  {
+    title: 'astro-dropdown',
+    description: 'Customizable dropdown component for Astro.',
+    link: 'https://github.com/yarso-su/astro-dropdown'
   },
   {
     title: 'zoho-mail',
-    tag: 'NPM Package',
-    description: 'Typed utility for sending emails through Zoho Mail API.',
-    link: 'https://github.com/yarso-su/zoho-mail',
-    type: 'package'
+    description: 'Utility for sending emails through Zoho API.',
+    link: 'https://github.com/yarso-su/zoho-mail'
   }
 ]
