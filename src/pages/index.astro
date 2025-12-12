@@ -3,9 +3,7 @@ import ContactForm from '@/components/ContactForm.astro'
 import PackageCard from '@/components/PackageCard.astro'
 import ProjectCard from '@/components/ProjectCard.astro'
 import Portfolio from '@/layouts/Portfolio.astro'
-import AstroCover from '@/assets/astro-cover.webp'
 import { projects, packages } from '@/lib/constants'
-import { Image } from 'astro:assets'
 ---
 
 <Portfolio>
@@ -14,7 +12,7 @@ import { Image } from 'astro:assets'
       <p
         class="leading-normal text-lg md:text-2xl font-semibold tracking-tight text-contrast"
       >
-        Hi, I'm Yeremi Rios
+        Hi, I'm Yeremi Ríos
       </p>
       <p
         class="text-black dark:text-white leading-[1.1] text-2xl lg:text-3xl font-semibold tracking-tight"
@@ -23,11 +21,9 @@ import { Image } from 'astro:assets'
       </p>
     </h1>
     <p class="text-sm sm:text-lg md:text-xl mt-2 md:mt-4">
-      Technology enthusiast with a strong background in web development. Ready
-      to take on a <span class="text-black dark:text-white font-semibold"
-        >Full-Stack</span
-      > role. Specialized in frontend technologies, with solid backend experience
-      using TypeScript, Python, and Go.
+      Full-stack developer with strong experience in Typescript, Python, and Go.
+      Recently exploring systems-level programming and developer tooling with
+      Rust.
     </p>
   </section>
   <section class="bg-secondary border-t">
@@ -57,23 +53,45 @@ import { Image } from 'astro:assets'
             </a>
           </article>
         </div>
-        <section>
-          <h3
-            class="leading-[1.1] text-lg lg:text-2xl font-semibold tracking-tight inline-flex gap-2 items-end"
+        <div class="grid grid-rows-[auto_1fr] gap-2">
+          <section>
+            <h3
+              class="leading-[1.1] text-lg lg:text-2xl font-semibold tracking-tight inline-flex gap-2 items-end"
+            >
+              <img src="/logos/npm.svg" alt="NPM Icon" width="24" height="24" />
+              <span class="text-black dark:text-white"> NPM Packages </span>
+            </h3>
+            <ul class="flex flex-col gap-2 mt-2 max-h-[300px] overflow-y-auto">
+              {
+                packages.map(project => (
+                  <li>
+                    <PackageCard content={project} />
+                  </li>
+                ))
+              }
+            </ul>
+          </section>
+          <a
+            href="https://github.com/yarso-su"
+            target="_blank"
+            referrerpolicy="no-referrer"
+            rel="noopener noreferrer nofollow"
+            class="flex justify-center items-center border bg-primary xl:flex-col gap-3 hover:scale-[97%] transition-transform duration-200 py-8 rounded-sm"
           >
-            <img src="/npm.svg" alt="NPM Icon" width="24" height="24" />
-            <span class="text-black dark:text-white"> NPM Packages </span>
-          </h3>
-          <ul class="flex flex-col gap-2 mt-2 max-h-[300px] overflow-y-auto">
-            {
-              packages.map(project => (
-                <li>
-                  <PackageCard content={project} />
-                </li>
-              ))
-            }
-          </ul>
-        </section>
+            <img
+              src="/logos/github.svg"
+              alt="GitHub Icon"
+              width="24"
+              height="24"
+              class="lg:w-8 lg:h-8 invert-100 dark:invert-0"
+            />
+            <p>
+              Visit my <span class="text-black dark:text-white font-semibold"
+                >GitHub</span
+              >
+            </p>
+          </a>
+        </div>
       </div>
       <div class="mt-8 md:mt-14">
         <h2
@@ -82,90 +100,102 @@ import { Image } from 'astro:assets'
           About my Tech Stack 📦
         </h2>
         <div
-          class="grid grid-cols-1 xl:grid-cols-[1fr_auto] gap-4 md:gap-8 mt-2 md:mt-3"
+          class="grid grid-cols-1 xl:grid-cols-[1fr_20%] gap-4 md:gap-8 mt-2 md:mt-3"
         >
           <div>
             <p class="md:text-xl text-sm sm:text-lg">
-              I have been shipping high-performance web applications using <strong
-                >Astro + TailwindCSS</strong
-              > as a primary framework. Avoiding the premature use of JavaScript
-              frameworks where there is no need for them.
+              I have been shipping high-performance web applications with
+              frameworks like <strong>Astro</strong>, <strong>Next.js</strong>, <strong
+                >SvelteKit</strong
+              >, and <strong>Vanilla JS + HTML</strong>. I focus on setting up
+              the optimal stack for each case, always prioritizing user
+              experience.
             </p>
             <p class="mt-2 md:text-xl text-sm sm:text-lg">
-              Although I have experience with <strong>Vanilla CSS</strong> and solid
-              experience with
-              <strong>React</strong> (using <strong>Next.js</strong>) and <strong
-                >Svelte-Kit</strong
-              >. With which I have been able to build a variety of highly
-              dynamic web applications.
+              For styling, I usually rely on <strong>TailwindCSS</strong>,
+              although I have experience with Vanilla CSS.
             </p>
           </div>
-          <a
-            href="https://astro.build/"
-            rel="noopener noreferrer nofollow"
-            referrerpolicy="no-referrer"
-            target="_blank"
-            class="rounded-sm h-fit overflow-hidden hover:opacity-60 transition-opacity duration-200 mx-auto border"
-            aria-label="Astro - The web framework for content-driven websites"
+          <div
+            class="grid xl:grid-cols-2 grid-cols-4 bg-primary border rounded-sm"
           >
-            <Image
-              src={AstroCover}
-              alt="Astro - The web framework for content-driven websites"
-              width="500"
-              height="300"
-              loading="lazy"
-              class="w-full xl:w-[300px] h-auto"
-            />
-          </a>
+            <div
+              class="flex items-center justify-center xl:border-b border-r py-3 xl:py-0"
+            >
+              <img
+                src="/logos/astro.svg"
+                alt="Astro Icon"
+                width="32"
+                height="32"
+                class="dark:invert-100"
+              />
+            </div>
+            <div
+              class="flex items-center justify-center xl:border-b border-r xl:border-r-0 py-3 xl:py-0"
+            >
+              <img
+                src="/logos/svelte.svg"
+                alt="Svelte Icon"
+                width="32"
+                height="32"
+              />
+            </div>
+            <div class="flex items-center justify-center border-r py-3 xl:py-0">
+              <img
+                src="/logos/react.svg"
+                alt="React Icon"
+                width="32"
+                height="32"
+              />
+            </div>
+            <div class="flex items-center justify-center py-3 xl:py-0">
+              <img
+                src="/logos/nextjs.svg"
+                alt="Next.js Icon"
+                width="32"
+                height="32"
+                class="dark:invert-100"
+              />
+            </div>
+          </div>
         </div>
         <p class="mt-4 md:mt-10 md:text-xl text-sm sm:text-lg">
-          Outside of the Frontend, I have been working with <strong
-            >Node.js</strong
-          >, <strong>Bun</strong> and <strong>Python</strong> building from simple
-          <strong>APIs (RESTful)</strong>
-          to complex <strong>Microservices</strong> and <strong
-            >Serverless</strong
-          > applications (alongside databases like <strong>PostgreSQL</strong>, <strong
-            >MySQL</strong
-          > and <strong>SQLite</strong>).
-        </p>
-      </div>
-      <div class="py-6 md:py-12">
-        <h2
-          class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight text-center bg-primary border py-6 px-2 rounded-sm"
-        >
-          Not a DevOps but enrolled in DevOps processes ☁️
-        </h2>
-        <p class="md:text-xl text-sm sm:text-lg mt-4 md:mt-8">
-          From the start, I have been handling <strong
-            >Infrastructure-related</strong
-          >
-          tasks. I have experience working with <strong>AWS</strong>, <strong
-            >Cloudflare</strong
-          > and Containers with <strong>Docker</strong>. I have deep knowledge
-          of <strong>Linux</strong> based systems and feel very comfortable using
-          <strong>CLI</strong> tools.
-        </p>
-        <p class="mt-3 md:text-xl text-sm sm:text-lg">
-          Code isn't all that matters, having these skills I have been able to
-          implement the required changes to achieve the desired outcome.
+          On the backend, I build services with <strong>Node.js</strong>, <strong
+            >Bun</strong
+          >, and <strong>Python</strong>. I've designed authentication systems
+          and built end-to-end solutions using PostgreSQL, SQLite, and MySQL.
         </p>
       </div>
 
-      <div>
+      <div
+        class="md:mt-12 mt-8 xl:grid xl:gap-3 xl:grid-cols-[20%_1fr] 2xl:grid-cols-[25%_1fr] border-b pb-6"
+      >
+        <h3
+          class="leading-[1.1] text-lg md:text-xl lg:text-2xl font-bold tracking-tight uppercase"
+        >
+          Not a DevOps but enrolled in DevOps processes
+        </h3>
+        <p class="md:text-xl text-sm sm:text-lg mt-2 xl:mt-0">
+          From the start, I've been handling infrastructure-related tasks. I
+          have experience with <strong>AWS</strong>, <strong>Cloudflare</strong
+          >, and containerization using
+          <strong>Docker</strong>. I have deep knowledge of Linux-based systems
+          and am very comfortable with CLI tools.
+        </p>
+      </div>
+
+      <div class="md:mt-12 mt-6">
         <h2
           class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight"
         >
           Lifelong Learner 📚
         </h2>
         <p class="text-sm sm:text-lg md:text-xl mt-2">
-          I work primarily with <strong>TypeScript</strong> and <strong
+          I work primarily with <strong>Typescript</strong> and <strong
             >Python</strong
-          > but I have the basics of other languages like <strong>Rust</strong>, <strong
-            >Go</strong
-          >, <strong>Lua</strong>, <strong>Java</strong> and <strong>PHP</strong
-          >. And I am always looking for new opportunities to learn new
-          technologies.
+          >, but I enjoy learning in general. I spend my free time coding
+          whatever catches my interest (lately Rust). I've worked with many
+          languages over the years and I'm always open to learning new stuff.
         </p>
       </div>
 
@@ -176,7 +206,7 @@ import { Image } from 'astro:assets'
           Let's connect
         </h2>
         <div
-          class="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-4 md:gap-4 mt-2 md:mt-3"
+          class="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-4 md:gap-4 mt-2 md:mt-3 items-start"
         >
           <div>
             <p class="text-sm sm:text-lg md:text-xl">
@@ -194,15 +224,14 @@ import { Image } from 'astro:assets'
                 target="_blank"
                 class="underline hover:opacity-60 transition-opacity duration-200"
                 ><strong>GitHub</strong></a
-              > or you can reach me directly through the next contact form. I check
-              my emails regularly. I am always happy to hear from you.
+              >, or reach me directly through the contact form. I check my
+              emails regularly and I'm always happy to hear from you.
             </p>
             <p class="mt-3 md:text-xl text-sm sm:text-lg">
-              I always welcome new opportunities to collaborate and learn new
-              things 🤓.
+              I welcome opportunities to learn new things 🤓.
             </p>
-            <p class="mt-3 md:text-xl text-sm sm:text-lg">
-              Cheers, <br />Yarso
+            <p class="mt-4 md:text-xl text-sm sm:text-lg">
+              Cheers, <br />Yeremi Ríos
             </p>
           </div>
           <ContactForm />

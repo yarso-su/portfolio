@@ -7,18 +7,25 @@ export type Project = {
 
 export const projects: Array<Project> = [
   {
+    title: 'Systemd TUI',
+    description:
+      'A simple utility to interact with systemd services through a TUI.',
+    link: 'https://github.com/yarso-su/systemctl-manager',
+    imageKey: 'github'
+  },
+  {
+    title: 'Jollaadmin',
+    description:
+      'Microservices-based system, internal data management and monitoring.',
+    link: 'https://residenciallajolla.net',
+    imageKey: 'jollaadmin'
+  },
+  {
     title: 'Technical Blog (ES)',
     description:
       'Personal blog covering software engineering and programming concepts.',
     link: 'https://es.yarso.dev',
     imageKey: 'blog'
-  },
-  {
-    title: 'Jollaadmin',
-    description:
-      'Microservices-based system for internal data management and monitoring.',
-    link: 'https://residenciallajolla.net',
-    imageKey: 'jollaadmin'
   }
 ]
 
