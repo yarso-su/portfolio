@@ -5,10 +5,12 @@ import { Image } from 'astro:assets'
 import type { ImageMetadata } from 'astro'
 import BlogImage from '@/assets/es-blog-cover.webp'
 import JollaadminImage from '@/assets/jollaadmin-cover.webp'
+import GithubImage from '@/assets/github.webp'
 
 const images: Record<string, ImageMetadata> = {
   blog: BlogImage,
-  jollaadmin: JollaadminImage
+  jollaadmin: JollaadminImage,
+  github: GithubImage
 }
 
 interface Props {
