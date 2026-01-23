@@ -7,11 +7,11 @@ export type Project = {
 
 export const projects: Array<Project> = [
   {
-    title: 'Systemd TUI',
+    title: 'Technical spanish blog',
     description:
-      'A simple utility to interact with systemd services through a TUI.',
-    link: 'https://github.com/yarso-su/systemctl-manager',
-    imageKey: 'github'
+      'Personal blog covering software engineering and programming concepts.',
+    link: 'https://es.yarso.dev',
+    imageKey: 'blog'
   },
   {
     title: 'Jollaadmin',
@@ -21,11 +21,11 @@ export const projects: Array<Project> = [
     imageKey: 'jollaadmin'
   },
   {
-    title: 'Technical Blog (ES)',
+    title: 'Cusmer',
     description:
-      'Personal blog covering software engineering and programming concepts.',
-    link: 'https://es.yarso.dev',
-    imageKey: 'blog'
+      'Web application for managing customers as an independent contractor.',
+    link: 'https://github.com/yarso-su/cusmer',
+    imageKey: 'github'
   }
 ]
 
@@ -49,13 +49,13 @@ export const packages: Array<Project> = [
 
 export const crates: Array<Project> = [
   {
-    title: 'astro-theme-toggler',
-    description: 'Lightweight theme toggler utility for Astro.',
-    link: 'https://github.com/yarso-su/astro-theme-toggler'
+    title: 'systemctl-manager',
+    description: 'Utility to interact with systemctl through a TUI.',
+    link: 'https://crates.io/crates/systemctl-manager'
   },
   {
-    title: 'astro-dropdown',
-    description: 'Customizable dropdown component for Astro.',
-    link: 'https://github.com/yarso-su/astro-dropdown'
+    title: 'jsnpar',
+    description: 'JSON parser implementation for Rust.',
+    link: 'https://crates.io/crates/jsnpar'
   }
 ]
