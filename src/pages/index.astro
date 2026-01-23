@@ -2,241 +2,286 @@
 import ContactForm from '@/components/ContactForm.astro'
 import PackageCard from '@/components/PackageCard.astro'
 import ProjectCard from '@/components/ProjectCard.astro'
-import Portfolio from '@/layouts/Portfolio.astro'
+import Basehead from '@/components/Basehead.astro'
 import { projects, packages } from '@/lib/constants'
+
+const title = 'Building Fast, Modern Web Apps - Yarso. Software Developer'
+const description =
+  'Full-stack developer specializing in high-performance web applications with Astro, React, and Node.js. Creator of open-source NPM packages and technical writer.'
 ---
 
-<Portfolio>
-  <section class="mt-4 mb-6 lg:mb-12 mx-auto 2xl:w-[60%] w-[90%]">
-    <h1 class="block">
-      <p
-        class="leading-normal text-lg md:text-2xl font-semibold tracking-tight text-contrast"
-      >
-        Hi, I'm Yeremi Ríos
+<!doctype html>
+<html lang="en">
+  <head>
+    <Basehead {title} {description} />
+  </head>
+  <body>
+    <header class="py-12 mx-auto 2xl:w-[60%] w-[90%]">
+      <h1 class="block">
+        <p
+          class="leading-normal text-lg md:text-2xl font-semibold tracking-tight text-contrast"
+        >
+          Hi, I'm Yeremi Ríos
+        </p>
+        <p
+          class="text-black leading-[1.1] text-2xl lg:text-3xl font-semibold tracking-tight"
+        >
+          A Software Developer based in Mexico
+        </p>
+      </h1>
+      <p class="text-sm sm:text-lg md:text-xl mt-2 md:mt-4">
+        Full-stack developer with strong experience in Typescript, Python, and
+        Go. Recently exploring systems-level programming and developer tooling
+        with Rust.
       </p>
-      <p
-        class="text-black dark:text-white leading-[1.1] text-2xl lg:text-3xl font-semibold tracking-tight"
-      >
-        A Software Developer based in Mexico
-      </p>
-    </h1>
-    <p class="text-sm sm:text-lg md:text-xl mt-2 md:mt-4">
-      Full-stack developer with strong experience in Typescript, Python, and Go.
-      Recently exploring systems-level programming and developer tooling with
-      Rust.
-    </p>
-  </section>
-  <section class="bg-secondary border-t">
-    <div class="mx-auto 2xl:w-[60%] w-[90%] pt-4">
-      <h2
-        class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight pt-2 md:pt-4 text-black dark:text-white"
-      >
-        Things I’ve Built
-      </h2>
-      <div class="mt-4 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4">
-        <div class="grid grid-rows-[auto_1fr]">
-          <ul class="flex flex-col gap-2">
-            {
-              projects.map(project => (
-                <li>
-                  <ProjectCard content={project} />
-                </li>
-              ))
-            }
-          </ul>
-          <article class="flex items-center justify-center py-6">
-            <a
-              href="#contact-form"
-              class="text-base md:text-lg text-black dark:text-white hover:opacity-60 transition-opacity duration-200"
+    </header>
+    <main>
+      <div class="grid grid-rows-[auto_1fr] h-full">
+        <section class="bg-secondary border-t">
+          <div class="mx-auto 2xl:w-[60%] w-[90%] pt-4">
+            <h2
+              class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight pt-2 md:pt-4 text-black"
             >
-              Want to collaborate? <span class="text-contrast">Reach out</span>
-            </a>
-          </article>
-        </div>
-        <div class="grid grid-rows-[auto_1fr] gap-2">
-          <section>
-            <h3
-              class="leading-[1.1] text-lg lg:text-2xl font-semibold tracking-tight inline-flex gap-2 items-end"
-            >
-              <img src="/logos/npm.svg" alt="NPM Icon" width="24" height="24" />
-              <span class="text-black dark:text-white"> NPM Packages </span>
-            </h3>
-            <ul class="flex flex-col gap-2 mt-2 max-h-[300px] overflow-y-auto">
-              {
-                packages.map(project => (
-                  <li>
-                    <PackageCard content={project} />
-                  </li>
-                ))
-              }
-            </ul>
-          </section>
-          <a
-            href="https://github.com/yarso-su"
-            target="_blank"
-            referrerpolicy="no-referrer"
-            rel="noopener noreferrer nofollow"
-            class="flex justify-center items-center border bg-primary xl:flex-col gap-3 hover:scale-[97%] transition-transform duration-200 py-8 rounded-sm"
-          >
-            <img
-              src="/logos/github.svg"
-              alt="GitHub Icon"
-              width="24"
-              height="24"
-              class="lg:w-8 lg:h-8 invert-100 dark:invert-0"
-            />
-            <p>
-              Visit my <span class="text-black dark:text-white font-semibold"
-                >GitHub</span
+              Things I’ve Built
+            </h2>
+            <div class="mt-4 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4">
+              <div class="grid grid-rows-[auto_1fr]">
+                <ul class="flex flex-col gap-2">
+                  {
+                    projects.map(project => (
+                      <li>
+                        <ProjectCard content={project} />
+                      </li>
+                    ))
+                  }
+                </ul>
+                <article class="flex items-center justify-center py-6">
+                  <a
+                    href="#contact-form"
+                    class="text-base md:text-lg text-black hover:opacity-60 transition-opacity duration-200"
+                  >
+                    Want to collaborate? <span class="text-contrast"
+                      >Reach out</span
+                    >
+                  </a>
+                </article>
+              </div>
+              <div class="grid grid-rows-[auto_1fr] gap-2">
+                <section>
+                  <h3
+                    class="leading-[1.1] text-lg lg:text-2xl font-semibold tracking-tight inline-flex gap-2 items-end"
+                  >
+                    <img
+                      src="/logos/npm.svg"
+                      alt="NPM Icon"
+                      width="24"
+                      height="24"
+                    />
+                    <span class="text-black"> NPM Packages </span>
+                  </h3>
+                  <ul class="flex flex-col gap-2 mt-2 max-h-75 overflow-y-auto">
+                    {
+                      packages.map(project => (
+                        <li>
+                          <PackageCard content={project} />
+                        </li>
+                      ))
+                    }
+                  </ul>
+                </section>
+                <a
+                  href="https://github.com/yarso-su"
+                  target="_blank"
+                  referrerpolicy="no-referrer"
+                  rel="noopener noreferrer nofollow"
+                  class="flex justify-center items-center border bg-primary xl:flex-col gap-3 hover:scale-[97%] transition-transform duration-200 py-8 rounded-sm"
+                >
+                  <img
+                    src="/logos/github.svg"
+                    alt="GitHub Icon"
+                    width="24"
+                    height="24"
+                    class="lg:w-8 lg:h-8 invert-100"
+                  />
+                  <p>
+                    Visit my <span class="text-black font-semibold">GitHub</span
+                    >
+                  </p>
+                </a>
+              </div>
+            </div>
+            <div class="mt-8 md:mt-14">
+              <h2
+                class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight"
               >
-            </p>
-          </a>
-        </div>
+                About my Tech Stack 📦
+              </h2>
+              <div
+                class="grid grid-cols-1 xl:grid-cols-[1fr_20%] gap-4 md:gap-8 mt-2 md:mt-3"
+              >
+                <div>
+                  <p class="md:text-xl text-sm sm:text-lg">
+                    I have been shipping high-performance web applications with
+                    frameworks like <strong>Astro</strong>, <strong
+                      >Next.js</strong
+                    >, <strong>SvelteKit</strong>, and <strong
+                      >Vanilla JS + HTML</strong
+                    >. I focus on setting up the optimal stack for each case,
+                    always prioritizing user experience.
+                  </p>
+                  <p class="mt-2 md:text-xl text-sm sm:text-lg">
+                    For styling, I usually rely on <strong>TailwindCSS</strong>,
+                    although I have experience with Vanilla CSS.
+                  </p>
+                </div>
+                <div
+                  class="grid xl:grid-cols-2 grid-cols-4 bg-primary border rounded-sm"
+                >
+                  <div
+                    class="flex items-center justify-center xl:border-b border-r py-3 xl:py-0"
+                  >
+                    <img
+                      src="/logos/astro.svg"
+                      alt="Astro Icon"
+                      width="32"
+                      height="32"
+                    />
+                  </div>
+                  <div
+                    class="flex items-center justify-center xl:border-b border-r xl:border-r-0 py-3 xl:py-0"
+                  >
+                    <img
+                      src="/logos/svelte.svg"
+                      alt="Svelte Icon"
+                      width="32"
+                      height="32"
+                    />
+                  </div>
+                  <div
+                    class="flex items-center justify-center border-r py-3 xl:py-0"
+                  >
+                    <img
+                      src="/logos/react.svg"
+                      alt="React Icon"
+                      width="32"
+                      height="32"
+                    />
+                  </div>
+                  <div class="flex items-center justify-center py-3 xl:py-0">
+                    <img
+                      src="/logos/nextjs.svg"
+                      alt="Next.js Icon"
+                      width="32"
+                      height="32"
+                    />
+                  </div>
+                </div>
+              </div>
+              <p class="mt-4 md:mt-10 md:text-xl text-sm sm:text-lg">
+                On the backend, I build services with <strong>Node.js</strong>, <strong
+                  >Bun</strong
+                >, and <strong>Python</strong>. I've designed authentication
+                systems and built end-to-end solutions using PostgreSQL, SQLite,
+                and MySQL.
+              </p>
+            </div>
+
+            <div class="pt-6 md:pt-8 pb-6 md:pb-10">
+              <h2
+                class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight"
+              >
+                Let's connect
+              </h2>
+              <div
+                class="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-4 md:gap-4 mt-2 md:mt-3 items-start"
+              >
+                <div>
+                  <p class="text-sm sm:text-lg md:text-xl">
+                    You can find me on <a
+                      href="https://www.linkedin.com/in/yeremi-rrios/"
+                      rel="noopener noreferrer nofollow"
+                      referrerpolicy="no-referrer"
+                      target="_blank"
+                      class="underline hover:opacity-60 transition-opacity duration-200"
+                      ><strong>LinkedIn</strong></a
+                    > and <a
+                      href="https://github.com/yarso-su"
+                      rel="noopener noreferrer nofollow"
+                      referrerpolicy="no-referrer"
+                      target="_blank"
+                      class="underline hover:opacity-60 transition-opacity duration-200"
+                      ><strong>GitHub</strong></a
+                    >, or reach me directly through the contact form. I check my
+                    emails regularly and I'm always happy to hear from you.
+                  </p>
+                  <p class="mt-3 md:text-xl text-sm sm:text-lg">
+                    I welcome opportunities to learn new things 🤓.
+                  </p>
+                  <p class="mt-4 md:text-xl text-sm sm:text-lg">
+                    Cheers, <br />Yeremi Ríos
+                  </p>
+                </div>
+                <ContactForm />
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-      <div class="mt-8 md:mt-14">
-        <h2
-          class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight"
-        >
-          About my Tech Stack 📦
-        </h2>
+      <footer class="bg-secondary p-3 lg:p-4 flex justify-center items-center">
         <div
-          class="grid grid-cols-1 xl:grid-cols-[1fr_20%] gap-4 md:gap-8 mt-2 md:mt-3"
+          class="bg-primary fixed m-4 py-1 pl-2 pr-4 opacity-0 gap-1 items-center md:text-lg left-0 right-0 sm:right-auto bottom-0 hidden rounded-sm border-[1px]"
+          id="toast-container"
         >
-          <div>
-            <p class="md:text-xl text-sm sm:text-lg">
-              I have been shipping high-performance web applications with
-              frameworks like <strong>Astro</strong>, <strong>Next.js</strong>, <strong
-                >SvelteKit</strong
-              >, and <strong>Vanilla JS + HTML</strong>. I focus on setting up
-              the optimal stack for each case, always prioritizing user
-              experience.
-            </p>
-            <p class="mt-2 md:text-xl text-sm sm:text-lg">
-              For styling, I usually rely on <strong>TailwindCSS</strong>,
-              although I have experience with Vanilla CSS.
-            </p>
-          </div>
-          <div
-            class="grid xl:grid-cols-2 grid-cols-4 bg-primary border rounded-sm"
-          >
-            <div
-              class="flex items-center justify-center xl:border-b border-r py-3 xl:py-0"
-            >
-              <img
-                src="/logos/astro.svg"
-                alt="Astro Icon"
-                width="32"
-                height="32"
-                class="dark:invert-100"
-              />
-            </div>
-            <div
-              class="flex items-center justify-center xl:border-b border-r xl:border-r-0 py-3 xl:py-0"
-            >
-              <img
-                src="/logos/svelte.svg"
-                alt="Svelte Icon"
-                width="32"
-                height="32"
-              />
-            </div>
-            <div class="flex items-center justify-center border-r py-3 xl:py-0">
-              <img
-                src="/logos/react.svg"
-                alt="React Icon"
-                width="32"
-                height="32"
-              />
-            </div>
-            <div class="flex items-center justify-center py-3 xl:py-0">
-              <img
-                src="/logos/nextjs.svg"
-                alt="Next.js Icon"
-                width="32"
-                height="32"
-                class="dark:invert-100"
-              />
-            </div>
-          </div>
+          <span> Toast </span>
         </div>
-        <p class="mt-4 md:mt-10 md:text-xl text-sm sm:text-lg">
-          On the backend, I build services with <strong>Node.js</strong>, <strong
-            >Bun</strong
-          >, and <strong>Python</strong>. I've designed authentication systems
-          and built end-to-end solutions using PostgreSQL, SQLite, and MySQL.
-        </p>
-      </div>
+        <script is:inline>
+          window.localStorage.removeItem('form-busy')
+          function toast(message, type) {
+            const toastContainer = document.getElementById('toast-container')
+            if (toastContainer) {
+              toastContainer.classList.remove('hidden')
+              toastContainer.classList.add('inline-flex')
+              toastContainer.animate(
+                [
+                  { opacity: '0', transform: 'translateY(100%)' },
+                  { opacity: '1', transform: 'translateY(0%)' }
+                ],
+                {
+                  duration: 150,
+                  easing: 'ease-in-out',
+                  fill: 'forwards'
+                }
+              )
 
-      <div
-        class="md:mt-12 mt-8 xl:grid xl:gap-3 xl:grid-cols-[20%_1fr] 2xl:grid-cols-[25%_1fr] border-b pb-6"
-      >
-        <h3
-          class="leading-[1.1] text-lg md:text-xl lg:text-2xl font-bold tracking-tight uppercase"
-        >
-          Not a DevOps but enrolled in DevOps processes
-        </h3>
-        <p class="md:text-xl text-sm sm:text-lg mt-2 xl:mt-0">
-          From the start, I've been handling infrastructure-related tasks. I
-          have experience with <strong>AWS</strong>, <strong>Cloudflare</strong
-          >, and containerization using
-          <strong>Docker</strong>. I have deep knowledge of Linux-based systems
-          and am very comfortable with CLI tools.
-        </p>
-      </div>
+              const success =
+                '<div style="width: 10px; height: 10px; border-radius: 2px; background-color: green;"></div>'
+              const error =
+                '<div style="width: 10px; height: 10px; border-radius: 2px; background-color: red;"></div>'
 
-      <div class="md:mt-12 mt-6">
-        <h2
-          class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight"
-        >
-          Lifelong Learner 📚
-        </h2>
-        <p class="text-sm sm:text-lg md:text-xl mt-2">
-          I work primarily with <strong>Typescript</strong> and <strong
-            >Python</strong
-          >, but I enjoy learning in general. I spend my free time coding
-          whatever catches my interest (lately Rust). I've worked with many
-          languages over the years and I'm always open to learning new stuff.
-        </p>
-      </div>
+              toastContainer.innerHTML = `<p style="font-size: 12px;">${type === 'success' ? success : error}</p> <p>${message}</p>`
 
-      <div class="pt-6 md:pt-8 pb-6 md:pb-10">
-        <h2
-          class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight"
-        >
-          Let's connect
-        </h2>
-        <div
-          class="grid grid-cols-1 md:grid-cols-[1fr_400px] gap-4 md:gap-4 mt-2 md:mt-3 items-start"
-        >
-          <div>
-            <p class="text-sm sm:text-lg md:text-xl">
-              You can find me on <a
-                href="https://www.linkedin.com/in/yeremi-rrios/"
-                rel="noopener noreferrer nofollow"
-                referrerpolicy="no-referrer"
-                target="_blank"
-                class="underline hover:opacity-60 transition-opacity duration-200"
-                ><strong>LinkedIn</strong></a
-              > and <a
-                href="https://github.com/yarso-su"
-                rel="noopener noreferrer nofollow"
-                referrerpolicy="no-referrer"
-                target="_blank"
-                class="underline hover:opacity-60 transition-opacity duration-200"
-                ><strong>GitHub</strong></a
-              >, or reach me directly through the contact form. I check my
-              emails regularly and I'm always happy to hear from you.
-            </p>
-            <p class="mt-3 md:text-xl text-sm sm:text-lg">
-              I welcome opportunities to learn new things 🤓.
-            </p>
-            <p class="mt-4 md:text-xl text-sm sm:text-lg">
-              Cheers, <br />Yeremi Ríos
-            </p>
-          </div>
-          <ContactForm />
-        </div>
-      </div>
-    </div>
-  </section>
-</Portfolio>
+              toastContainer.animate(
+                [
+                  { opacity: '1', transform: 'translateY(0%)' },
+                  { opacity: '0', transform: 'translateY(100%)' }
+                ],
+                {
+                  delay: 3000,
+                  duration: 150,
+                  easing: 'ease-in-out',
+                  fill: 'forwards'
+                }
+              ).onfinish = () => {
+                toastContainer.classList.add('hidden')
+                window.localStorage.removeItem('form-busy')
+              }
+            }
+          }
+        </script>
+        <p class="opacity-80 text-xs sm:text-sm lg:text-base">
+          © 2025 Yarso. All rights reserved.
+        </p>
+      </footer>
+    </main>
+  </body>
+</html>
