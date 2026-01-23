@@ -2,7 +2,6 @@
 import '@/styles/global.css'
 import coverImage from '@/assets/cover.jpg'
 import { getImage } from 'astro:assets'
-import { LoadTheme } from '@yarso/astro-theme-toggler'
 
 export interface Props {
   title: string
@@ -70,4 +69,3 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href
 })}>
 </script>
 
-<LoadTheme />
