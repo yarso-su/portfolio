@@ -46,3 +46,16 @@ export const packages: Array<Project> = [
     link: 'https://github.com/yarso-su/zoho-mail'
   }
 ]
+
+export const crates: Array<Project> = [
+  {
+    title: 'astro-theme-toggler',
+    description: 'Lightweight theme toggler utility for Astro.',
+    link: 'https://github.com/yarso-su/astro-theme-toggler'
+  },
+  {
+    title: 'astro-dropdown',
+    description: 'Customizable dropdown component for Astro.',
+    link: 'https://github.com/yarso-su/astro-dropdown'
+  }
+]
