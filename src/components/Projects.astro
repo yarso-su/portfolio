@@ -6,7 +6,7 @@ import { projects, packages, crates } from '@/lib/constants'
 ---
 
 <section
-  class="mx-auto 2xl:w-[60%] w-[90%] grid grid-cols-[2fr_1fr] gap-4 mt-16"
+  class="mx-auto 2xl:w-[60%] w-[90%] grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 mt-12 sm:mt-16"
 >
   <div class="grid grid-rows-[1fr_auto] gap-4">
     <ul class="grid grid-rows-3 gap-2">
@@ -19,11 +19,11 @@ import { projects, packages, crates } from '@/lib/constants'
         <img src="/images/cargo.png" alt="NPM Icon" width="24" height="24" />
         <span class="text-black"> Crates.io </span>
       </h3>
-      <ul class="grid grid-cols-2 gap-2 mt-2">
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
         {
           crates.map(crate => (
             <li>
-              <PackageCard content={crate} />
+              <PackageCard content={crate} horizontal />
             </li>
           ))
         }

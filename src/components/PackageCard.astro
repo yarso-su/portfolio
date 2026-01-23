@@ -4,12 +4,15 @@ import Link from '@lucide/astro/icons/square-arrow-out-up-right'
 
 interface Props {
   content: Project
+  horizontal?: boolean
 }
 
-const { content } = Astro.props
+const { content, horizontal = false } = Astro.props
 ---
 
-<article class="rounded-sm border p-3 bg-primary">
+<article
+  class={`rounded-sm border p-3 bg-primary ${horizontal ? 'h-full' : ''}`}
+>
   <h3>
     <a
       href={content.link}

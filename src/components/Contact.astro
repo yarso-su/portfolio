@@ -2,11 +2,13 @@
 import ContactForm from '@/components/ContactForm.astro'
 ---
 
-<section class="mt-18 mx-auto 2xl:w-[60%] w-[90%]">
-  <h2 class="leading-[1.1] text-xl lg:text-3xl font-semibold tracking-tight">
+<section class="mt-12 sm:mt-18 mx-auto 2xl:w-[60%] w-[90%]">
+  <h2
+    class="leading-[1.1] text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight"
+  >
     Let's connect
   </h2>
-  <div class="grid grid-cols-[1fr_2fr] mt-3 gap-4">
+  <div class="grid grid-cols-1 lg:grid-cols-[1fr_2fr] mt-3 gap-4">
     <ContactForm />
     <div>
       <p class="text-sm sm:text-lg md:text-xl">
