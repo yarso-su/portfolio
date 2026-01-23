@@ -8,9 +8,9 @@
    version="1.1"
    id="svg1"
    inkscape:export-filename="web-app-manifest-512x512.png"
-   inkscape:export-xdpi="1023.6847"
-   inkscape:export-ydpi="1023.6847"
-   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   inkscape:export-xdpi="1024"
+   inkscape:export-ydpi="1024"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
    sodipodi:docname="favicon.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -30,8 +30,8 @@
      inkscape:zoom="13.729334"
      inkscape:cx="35.252985"
      inkscape:cy="24.218218"
-     inkscape:window-width="1900"
-     inkscape:window-height="1026"
+     inkscape:window-width="1920"
+     inkscape:window-height="1080"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -104,7 +104,9 @@
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:31.9816px;font-family:'Fira Code';-inkscape-font-specification:'Fira Code Bold';fill:#155dfc;fill-opacity:1;stroke-width:0"
          x="4.2354236"
          y="35.998268"><tspan
-   style="fill:#000000;fill-opacity:1"
-   id="tspan2">Y</tspan>S</tspan></text>
+           style="fill:#000000;fill-opacity:1"
+           id="tspan2">Y</tspan><tspan
+           style="fill:#009966;fill-opacity:1"
+           id="tspan1">S</tspan></tspan></text>
   </g>
 </svg>
