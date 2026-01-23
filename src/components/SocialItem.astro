@@ -1,0 +1,23 @@
+---
+import Link from '@lucide/astro/icons/square-arrow-out-up-right'
+
+interface Props {
+  link: string
+  text: string
+}
+
+const { link, text } = Astro.props
+---
+
+<a
+  href={link}
+  target="_blank"
+  referrerpolicy="no-referrer"
+  rel="noopener noreferrer nofollow"
+  class="rounded-sm border bg-primary p-3 hover:underline underline-offset-2 inline-flex items-center gap-1 w-full"
+>
+  <span class="text-sm sm:text-base text-black">
+    {text}
+  </span>
+  <Link class="size-3" />
+</a>

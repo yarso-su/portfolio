@@ -20,8 +20,8 @@ interface Props {
 const { content } = Astro.props
 ---
 
-<article
-  class="rounded-sm border bg-primary grid grid-cols-[1fr_auto] overflow-hidden"
+<li
+  class="rounded-sm border bg-primary grid grid-cols-[1fr_auto] overflow-hidden m-0 p-0"
 >
   <div class="p-3">
     <h3>
@@ -49,8 +49,8 @@ const { content } = Astro.props
         alt={content.title}
         loading="lazy"
         width={100}
-        class="border-l w-full h-auto aspect-square object-cover"
+        class="border-l w-auto h-full aspect-square object-cover"
       />
     )
   }
-</article>
+</li>
