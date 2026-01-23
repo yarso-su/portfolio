@@ -32,12 +32,12 @@ export const projects: Array<Project> = [
 export const packages: Array<Project> = [
   {
     title: 'astro-theme-toggler',
-    description: 'Lightweight theme toggler utility for Astro.',
+    description: 'Lightweight theme toggler utility.',
     link: 'https://github.com/yarso-su/astro-theme-toggler'
   },
   {
     title: 'astro-dropdown',
-    description: 'Customizable dropdown component for Astro.',
+    description: 'Customizable dropdown component.',
     link: 'https://github.com/yarso-su/astro-dropdown'
   },
   {
