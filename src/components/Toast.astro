@@ -1,0 +1,50 @@
+<div
+  class="bg-primary fixed m-4 py-1 pl-2 pr-4 opacity-0 gap-1 items-center md:text-lg left-0 right-0 sm:right-auto bottom-0 hidden rounded-sm border"
+  id="toast-container"
+>
+  <span> Toast </span>
+</div>
+<script is:inline>
+  window.localStorage.removeItem('form-busy')
+  function toast(message, type) {
+    const toastContainer = document.getElementById('toast-container')
+    if (toastContainer) {
+      toastContainer.classList.remove('hidden')
+      toastContainer.classList.add('inline-flex')
+      toastContainer.animate(
+        [
+          { opacity: '0', transform: 'translateY(100%)' },
+          { opacity: '1', transform: 'translateY(0%)' }
+        ],
+        {
+          duration: 150,
+          easing: 'ease-in-out',
+          fill: 'forwards'
+        }
+      )
+
+      const success =
+        '<div style="width: 10px; height: 10px; border-radius: 2px; background-color: green;"></div>'
+      const error =
+        '<div style="width: 10px; height: 10px; border-radius: 2px; background-color: red;"></div>'
+
+      toastContainer.innerHTML = `<p style="font-size: 12px;">${type === 'success' ? success : error}</p> <p>${message}</p>`
+
+      toastContainer.animate(
+        [
+          { opacity: '1', transform: 'translateY(0%)' },
+          { opacity: '0', transform: 'translateY(100%)' }
+        ],
+        {
+          delay: 3000,
+          duration: 150,
+          easing: 'ease-in-out',
+          fill: 'forwards'
+        }
+      ).onfinish = () => {
+        toastContainer.classList.add('hidden')
+        window.localStorage.removeItem('form-busy')
+      }
+    }
+  }
+</script>

@@ -1,0 +1,66 @@
+---
+import PackageCard from '@/components/PackageCard.astro'
+import ProjectCard from '@/components/ProjectCard.astro'
+import { projects, packages, crates } from '@/lib/constants'
+---
+
+<section
+  class="mx-auto 2xl:w-[60%] w-[90%] grid grid-cols-[2fr_1fr] gap-4 mt-16"
+>
+  <div class="grid grid-rows-[1fr_auto] gap-4">
+    <ul class="flex flex-col gap-2">
+      {
+        projects.map(project => (
+          <li>
+            <ProjectCard content={project} />
+          </li>
+        ))
+      }
+    </ul>
+    <section>
+      <h3
+        class="leading-[1.1] text-lg lg:text-2xl font-semibold tracking-tight inline-flex gap-2 items-end"
+      >
+        <img src="/images/cargo.png" alt="NPM Icon" width="24" height="24" />
+        <span class="text-black"> Crates.io </span>
+      </h3>
+      <ul class="grid grid-cols-2 gap-2 mt-2">
+        {
+          crates.map(crate => (
+            <li>
+              <PackageCard content={crate} />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+  <div class="grid grid-rows-[auto_1fr] gap-2">
+    <section>
+      <h3
+        class="leading-[1.1] text-lg lg:text-2xl font-semibold tracking-tight inline-flex gap-2 items-end"
+      >
+        <img src="/logos/npm.svg" alt="NPM Icon" width="24" height="24" />
+        <span class="text-black"> NPM Packages </span>
+      </h3>
+      <ul class="flex flex-col gap-2 mt-2 max-h-75 overflow-y-auto">
+        {
+          packages.map(project => (
+            <li>
+              <PackageCard content={project} />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+    <span>socials</span>
+  </div>
+</section>
+<div class="mx-auto 2xl:w-[60%] w-[90%] mt-6 flex justify-center items-center">
+  <a
+    href="#contact-form"
+    class="text-base md:text-lg text-black hover:opacity-60 transition-opacity duration-200"
+  >
+    Want to collaborate? <span class="text-contrast">Reach out</span>
+  </a>
+</div>
