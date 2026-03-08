@@ -68,7 +68,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: `Portfolio <portfolio@works.yarso.dev>`,
+        from: `Portfolio <portfolio@apps.yarso.dev>`,
         subject: 'Contact Form',
         to: ['contact@yarso.dev'],
         html: `
