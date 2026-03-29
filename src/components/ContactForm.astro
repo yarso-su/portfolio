@@ -79,12 +79,12 @@ import Send from '@lucide/astro/icons/send'
           }
 
           if (res.status === 200) {
-            toast('Message sent successfully', 'success')
+            toast('Message sent', 'success')
             form.reset()
             return
           }
 
-          toast('Error sending message', 'error')
+          toast('Something went wrong. Try again later', 'error')
         })
       }
     })()
