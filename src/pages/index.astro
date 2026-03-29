@@ -1,29 +1,29 @@
 ---
-import Head from '@/components/Head.astro'
-import Header from '@/components/Header.astro'
-import Projects from '@/components/Projects.astro'
-import About from '@/components/About.astro'
-import Contact from '@/components/Contact.astro'
-import Toast from '@/components/Toast.astro'
+import About from '@components/About.astro'
+import Contact from '@components/Contact.astro'
+import Masthead from '@components/Masthead.astro'
+import Projects from '@components/Projects.astro'
+import Toast from '@components/Toast.astro'
+import Layout from '@layouts/Layout.astro'
+
+const year = new Date().getFullYear()
 ---
 
-<!doctype html>
-<html lang="en">
-  <Head />
-  <body>
-    <Header />
-    <main class="bg-secondary border-t">
-      <Projects />
-      <About />
-      <Contact />
-    </main>
-    <footer
-      class="bg-secondary flex justify-center items-center pt-12 sm:pt-16 pb-3 sm:pb-4"
-    >
-      <Toast />
-      <p class="opacity-80 text-xs sm:text-sm lg:text-base">
-        © 2026 Yarso. All rights reserved.
-      </p>
-    </footer>
-  </body>
-</html>
+<Layout>
+  <Masthead />
+  <main class="bg-secondary border-t">
+    <Projects />
+
+    <About />
+
+    <Contact />
+  </main>
+  <footer
+    class="bg-secondary flex items-center justify-center pt-12 pb-3 sm:pt-16 sm:pb-4"
+  >
+    <Toast />
+    <p class="text-xs opacity-80 sm:text-sm lg:text-base">
+      © {year} Yarso. All rights reserved.
+    </p>
+  </footer>
+</Layout>

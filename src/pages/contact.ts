@@ -1,64 +1,60 @@
 import type { APIRoute } from 'astro'
+import { z } from 'astro/zod'
 import { RESEND_API_KEY } from 'astro:env/server'
+import { env } from 'cloudflare:workers'
 
-interface KVNamespace {
-  get(key: string): Promise<string | null>
-  put(
-    key: string,
-    value: string,
-    options?: { expirationTtl?: number }
-  ): Promise<void>
-  delete(key: string): Promise<void>
-}
+const sendMessageSchema = z.object({
+  email: z.email().min(8).max(80),
+  message: z.string().min(6).max(240)
+})
 
 export const prerender = false
 
-export const POST: APIRoute = async ({ request, locals }) => {
-  try {
-    const kv = (locals as { runtime?: { env?: { RATE_LIMIT?: KVNamespace } } })
-      .runtime?.env?.RATE_LIMIT
+async function limitExceeded(ip: string) {
+  const rateLimitKey = `contact:${ip}`
+  const windowStart = Math.floor(Date.now() / 1800000) * 1800000 // note: 1800000 = 30 * 60 * 1000
 
-    if (!kv) {
-      return new Response('Servicio no disponible', {
-        status: 500
-      })
+  const requestsData = await env.RATE_LIMIT.get(
+    `${rateLimitKey}:${windowStart}`
+  )
+  const requests = requestsData ? parseInt(requestsData) : 0
+
+  if (requests >= 6) {
+    return true
+  }
+
+  await env.RATE_LIMIT.put(
+    `${rateLimitKey}:${windowStart}`,
+    String(requests + 1),
+    {
+      expirationTtl: 30 * 60
     }
+  )
 
-    const ip = request.headers.get('CF-Connecting-IP') || 'unknown'
-    const rateLimitKey = `contact:${ip}`
-    const windowStart =
-      Math.floor(Date.now() / (30 * 60 * 1000)) * 30 * 60 * 1000
-    const requestsData = await kv.get(`${rateLimitKey}:${windowStart}`)
-    const requests = requestsData ? parseInt(requestsData) : 0
+  return false
+}
 
-    if (requests >= 6) {
-      return new Response('Too many requests. Try again later.', {
+export const POST: APIRoute = async ({ request }) => {
+  try {
+    if (
+      await limitExceeded(request.headers.get('CF-Connecting-IP') || 'unknown')
+    ) {
+      return new Response('Too many requests', {
         status: 429
       })
     }
 
-    await kv.put(`${rateLimitKey}:${windowStart}`, String(requests + 1), {
-      expirationTtl: 30 * 60
-    })
-
     const body = await request.json()
-
-    if (
-      !body.email ||
-      body.email.length < 8 ||
-      body.email.length > 80 ||
-      !body.message ||
-      body.message.length < 6 ||
-      body.message.length > 240
-    ) {
+    const { success, data } = sendMessageSchema.safeParse(body)
+    if (!success) {
       return new Response('Invalid request', {
         status: 400
       })
     }
 
     const content = `
-    <span style="font-weight: bold;">${body.email}</span> has sent a message on the contact form.<br/><br/>
-<span style="font-weight: bold;">Message:</span><br/>${body.message}<br/>
+    <span style="font-weight: bold;">${data.email}</span> has sent a message on the contact form.<br/><br/>
+<span style="font-weight: bold;">Message:</span><br/>${data.message}<br/>
     `
 
     const res = await fetch('https://api.resend.com/emails', {
@@ -68,7 +64,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        from: `Portfolio <portfolio@works.yarso.dev>`,
+        from: `Portfolio <portfolio@apps.yarso.dev>`,
         subject: 'Contact Form',
         to: ['contact@yarso.dev'],
         html: `
@@ -135,15 +131,13 @@ export const POST: APIRoute = async ({ request, locals }) => {
       })
     })
 
-    if (res.status !== 200) {
-      return new Response('Error sending message', {
-        status: 500
-      })
+    if (!res.ok) {
+      throw new Error('Error sending message')
     }
 
-    return new Response('Message sent successfully')
-  } catch (err) {
-    return new Response('Error sending message', {
+    return new Response()
+  } catch {
+    return new Response('Internal server error', {
       status: 500
     })
   }

@@ -1,12 +1,67 @@
 ---
-import PackageCard from '@/components/PackageCard.astro'
-import ProjectCard from '@/components/ProjectCard.astro'
-import SocialItem from '@/components/SocialItem.astro'
-import { projects, packages, crates } from '@/lib/constants'
+import PackageCard from '@components/PackageCard.astro'
+import ProjectCard from '@components/ProjectCard.astro'
+import SocialItem from '@components/SocialNetworkLink.astro'
+import { type Project } from '@lib/types'
+
+export const projects: Array<Project> = [
+  {
+    title: 'Technical spanish blog',
+    description:
+      'Personal blog covering software engineering and programming concepts.',
+    link: 'https://es.yarso.dev',
+    imageKey: 'blog'
+  },
+  {
+    title: 'Jollaadmin',
+    description:
+      'Microservices-based system, internal data management and monitoring.',
+    link: 'https://residenciallajolla.net',
+    imageKey: 'jollaadmin'
+  },
+  {
+    title: 'Cusmer',
+    description:
+      'Web application for managing customers as an independent contractor.',
+    link: 'https://github.com/yarso-su/cusmer',
+    imageKey: 'github'
+  }
+]
+
+export const packages: Array<Project> = [
+  {
+    title: 'astro-theme-toggler',
+    description: 'Lightweight theme toggler utility.',
+    link: 'https://github.com/yarso-su/astro-theme-toggler'
+  },
+  {
+    title: 'astro-dropdown',
+    description: 'Customizable dropdown component.',
+    link: 'https://github.com/yarso-su/astro-dropdown'
+  },
+  {
+    title: 'zoho-mail',
+    description: 'Utility for sending emails through Zoho API.',
+    link: 'https://github.com/yarso-su/zoho-mail'
+  }
+]
+
+export const crates: Array<Project> = [
+  {
+    title: 'systemctl-manager',
+    description: 'Utility to interact with systemctl through a TUI.',
+    link: 'https://crates.io/crates/systemctl-manager'
+  },
+  {
+    title: 'jsnpar',
+    description: 'JSON parser implementation for Rust.',
+    link: 'https://crates.io/crates/jsnpar'
+  }
+]
 ---
 
 <section
-  class="mx-auto 2xl:w-[60%] w-[90%] grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-4 mt-12 sm:mt-16"
+  class="mx-auto mt-12 grid w-[90%] grid-cols-1 gap-4 sm:mt-16 md:grid-cols-[2fr_1fr] 2xl:w-[60%]"
 >
   <div class="grid grid-rows-[1fr_auto] gap-4">
     <ul class="grid grid-rows-3 gap-2">
@@ -14,12 +69,12 @@ import { projects, packages, crates } from '@/lib/constants'
     </ul>
     <section>
       <h3
-        class="leading-[1.1] text-lg lg:text-2xl font-semibold tracking-tight inline-flex gap-2 items-end"
+        class="inline-flex items-end gap-2 text-lg leading-[1.1] font-semibold tracking-tight lg:text-2xl"
       >
         <img src="/images/cargo.png" alt="NPM Icon" width="24" height="24" />
         <span class="text-black"> Crates.io </span>
       </h3>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+      <ul class="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
         {
           crates.map(crate => (
             <li>
@@ -33,12 +88,12 @@ import { projects, packages, crates } from '@/lib/constants'
   <div class="grid grid-rows-[auto_1fr] gap-4">
     <section>
       <h3
-        class="leading-[1.1] text-lg lg:text-2xl font-semibold tracking-tight inline-flex gap-2 items-end"
+        class="inline-flex items-end gap-2 text-lg leading-[1.1] font-semibold tracking-tight lg:text-2xl"
       >
         <img src="/logos/npm.svg" alt="NPM Icon" width="24" height="24" />
         <span class="text-black"> NPM Packages </span>
       </h3>
-      <ul class="flex flex-col gap-2 mt-2 max-h-75 overflow-y-auto">
+      <ul class="mt-2 flex max-h-75 flex-col gap-2 overflow-y-auto">
         {
           packages.map(project => (
             <li>
@@ -50,7 +105,7 @@ import { projects, packages, crates } from '@/lib/constants'
     </section>
     <section class="grid grid-rows-[auto_1fr] gap-2">
       <h3
-        class="leading-[1.1] text-lg lg:text-2xl font-semibold tracking-tight text-black"
+        class="text-lg leading-[1.1] font-semibold tracking-tight text-black lg:text-2xl"
       >
         Social
       </h3>
@@ -77,10 +132,10 @@ import { projects, packages, crates } from '@/lib/constants'
     </section>
   </div>
 </section>
-<div class="mx-auto 2xl:w-[60%] w-[90%] mt-6 flex justify-center items-center">
+<div class="mx-auto mt-6 flex w-[90%] items-center justify-center 2xl:w-[60%]">
   <a
     href="#contact-form"
-    class="text-base md:text-lg text-black hover:opacity-60 transition-opacity duration-200"
+    class="text-base text-black transition-opacity duration-200 hover:opacity-60 md:text-lg"
   >
     Want to collaborate? <span class="text-contrast">Reach out</span>
   </a>

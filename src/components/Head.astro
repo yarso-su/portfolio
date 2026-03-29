@@ -1,6 +1,6 @@
 ---
-import '@/styles/global.css'
-import coverImage from '@/assets/cover.jpg'
+import '../styles/global.css'
+import coverImage from '@assets/cover.jpg'
 import { getImage } from 'astro:assets'
 
 const cover = await getImage({
@@ -12,9 +12,9 @@ const cover = await getImage({
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href
 
-const title = 'Building Fast, Modern Web Apps - Yarso. Software Developer'
+const title = 'Building Fast, Modern Apps - Yarso. Software Developer'
 const description =
-  'Full-stack developer specializing in high-performance web applications with Astro, React, and Node.js. Creator of open-source NPM packages and technical writer.'
+  'Full-stack developer specializing in high-performance web applications with Svelte, Astro, and Node.js. Creator of open-source NPM packages and technical writer.'
 ---
 
 <head>

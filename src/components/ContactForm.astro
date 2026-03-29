@@ -1,11 +1,11 @@
 ---
-import Button from '@/atoms/Button.astro'
+import Button from '@components/ui/Button.astro'
 import Send from '@lucide/astro/icons/send'
 ---
 
 <div class="flex flex-col justify-center gap-3">
-  <form class="relative flex flex-col gap-2 sm:gap-3 w-full" id="contact-form">
-    <label class="bg-primary py-1 px-3 rounded-sm border">
+  <form class="relative flex w-full flex-col gap-2 sm:gap-3" id="contact-form">
+    <label class="bg-primary rounded-sm border px-3 py-1">
       <p class="text-sm sm:text-base">Email</p>
       <input
         required
@@ -14,10 +14,10 @@ import Send from '@lucide/astro/icons/send'
         type="email"
         name="email"
         placeholder="example@domain.com"
-        class="w-full focus:outline-none text-sm sm:text-base"
+        class="w-full text-sm focus:outline-none sm:text-base"
       />
     </label>
-    <label class="bg-primary py-1 px-3 rounded-sm border">
+    <label class="bg-primary rounded-sm border px-3 py-1">
       <p class="text-sm sm:text-base">Message</p>
       <textarea
         required
@@ -25,10 +25,10 @@ import Send from '@lucide/astro/icons/send'
         maxlength="240"
         name="message"
         placeholder="Write your message here..."
-        class="w-full focus:outline-none resize-none text-sm sm:text-base"
+        class="w-full resize-none text-sm focus:outline-none sm:text-base"
       ></textarea>
     </label>
-    <Button aria-label="Send message" class="absolute bottom-2 right-2">
+    <Button aria-label="Send message" class="absolute right-2 bottom-2">
       <Send class="size-3 sm:size-4" />
     </Button>
   </form>
@@ -79,12 +79,12 @@ import Send from '@lucide/astro/icons/send'
           }
 
           if (res.status === 200) {
-            toast('Message sent successfully', 'success')
+            toast('Message sent', 'success')
             form.reset()
             return
           }
 
-          toast('Error sending message', 'error')
+          toast('Something went wrong. Try again later', 'error')
         })
       }
     })()
