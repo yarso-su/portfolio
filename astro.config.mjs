@@ -3,26 +3,17 @@ import { defineConfig, envField } from 'astro/config'
 
 import cloudflare from '@astrojs/cloudflare'
 
-import sitemap from '@astrojs/sitemap'
-
 import tailwindcss from '@tailwindcss/vite'
+
+// todo: Set "site"
 
 // https://astro.build/config
 export default defineConfig({
-  site: import.meta.env.PROD
-    ? 'https://yarso.dev'
-    : 'https://frontend.yarso.dev',
+  site: import.meta.env.PROD ? 'https://yarso.dev' : 'http://localhost:4321',
+
+  adapter: cloudflare(),
 
   output: 'static',
-
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: false
-    },
-    imageService: 'compile'
-  }),
-
-  integrations: [sitemap()],
 
   vite: {
     plugins: [tailwindcss()],
@@ -39,9 +30,5 @@ export default defineConfig({
         optional: false
       })
     }
-  },
-
-  devToolbar: {
-    enabled: false
   }
 })

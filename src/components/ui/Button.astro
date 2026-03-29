@@ -1,11 +1,16 @@
 ---
+import { cn } from '@lib/utils'
+
 type Props = astroHTML.JSX.ButtonHTMLAttributes
 
 const { class: className, ...props }: Props = Astro.props
 ---
 
 <button
-  class={`${className} border-[1px] p-2 rounded-sm bg-secondary hover:bg-primary transition-colors duration-200`}
+  class={cn(
+    className,
+    'border p-2 rounded-sm bg-secondary hover:bg-primary transition-colors duration-200'
+  )}
   {...props}
 >
   <slot />
