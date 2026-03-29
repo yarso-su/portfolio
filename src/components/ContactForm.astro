@@ -1,0 +1,92 @@
+---
+import Button from '@components/ui/Button.astro'
+import Send from '@lucide/astro/icons/send'
+---
+
+<div class="flex flex-col justify-center gap-3">
+  <form class="relative flex w-full flex-col gap-2 sm:gap-3" id="contact-form">
+    <label class="bg-primary rounded-sm border px-3 py-1">
+      <p class="text-sm sm:text-base">Email</p>
+      <input
+        required
+        minlength="8"
+        maxlength="80"
+        type="email"
+        name="email"
+        placeholder="example@domain.com"
+        class="w-full text-sm focus:outline-none sm:text-base"
+      />
+    </label>
+    <label class="bg-primary rounded-sm border px-3 py-1">
+      <p class="text-sm sm:text-base">Message</p>
+      <textarea
+        required
+        minlength="6"
+        maxlength="240"
+        name="message"
+        placeholder="Write your message here..."
+        class="w-full resize-none text-sm focus:outline-none sm:text-base"
+      ></textarea>
+    </label>
+    <Button aria-label="Send message" class="absolute right-2 bottom-2">
+      <Send class="size-3 sm:size-4" />
+    </Button>
+  </form>
+  <script is:inline>
+    ;(() => {
+      const form = document.getElementById('contact-form')
+      if (form) {
+        form.addEventListener('submit', async e => {
+          e.preventDefault()
+
+          const busy = window.localStorage.getItem('form-busy') === 'true'
+
+          if (busy) {
+            return
+          }
+
+          window.localStorage.setItem('form-busy', 'true')
+
+          const formData = new FormData(e.currentTarget)
+          const email = formData.get('email')
+          const message = formData.get('message')
+
+          if (!email || !message) {
+            toast('Fill all the form fields', 'error')
+            return
+          }
+
+          const res = await fetch('/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              email,
+              message
+            })
+          })
+
+          if (res.status === 400) {
+            const error = await res.text()
+            toast(error, 'error')
+            return
+          }
+
+          if (res.status === 429) {
+            toast('Too many requests. Try again later', 'error')
+            return
+          }
+
+          if (res.status === 200) {
+            toast('Message sent successfully', 'success')
+            form.reset()
+            return
+          }
+
+          toast('Error sending message', 'error')
+        })
+      }
+    })()
+  </script>
+</div>
