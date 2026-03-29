@@ -9,7 +9,8 @@
 }
 
 :root {
-  --color-contrast: oklch(59.6% 0.145 163.225);
+  --color-contrast: oklch(70.5% 0.213 47.604);
+  /* --color-contrast: oklch(64.6% 0.222 41.116); */
 
   --color-primary: white;
   --color-secondary: #fafafa;
