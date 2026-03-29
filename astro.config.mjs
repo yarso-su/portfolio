@@ -11,7 +11,9 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   site: import.meta.env.PROD ? 'https://yarso.dev' : 'http://localhost:4321',
 
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    sessionKVBindingName: 'RATE_LIMIT'
+  }),
 
   output: 'static',
 
