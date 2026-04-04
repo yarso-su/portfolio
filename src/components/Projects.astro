@@ -48,14 +48,19 @@ export const packages: Array<Project> = [
 
 export const crates: Array<Project> = [
   {
-    title: 'systemctl-manager',
-    description: 'Utility to interact with systemctl through a TUI.',
-    link: 'https://crates.io/crates/systemctl-manager'
+    title: 'jsnpar',
+    description: 'JSON parser implementation',
+    link: 'https://crates.io/crates/jsnpar'
   },
   {
-    title: 'jsnpar',
-    description: 'JSON parser implementation for Rust.',
-    link: 'https://crates.io/crates/jsnpar'
+    title: 'osm-bbox',
+    description: 'OSM bounding box',
+    link: 'https://crates.io/crates/osm-bbox'
+  },
+  {
+    title: 'systemctl-manager',
+    description: 'Systemctl TUI',
+    link: 'https://crates.io/crates/systemctl-manager'
   }
 ]
 ---
@@ -74,7 +79,7 @@ export const crates: Array<Project> = [
         <img src="/images/cargo.png" alt="NPM Icon" width="24" height="24" />
         <span class="text-black"> Crates.io </span>
       </h3>
-      <ul class="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-2">
+      <ul class="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
         {
           crates.map(crate => (
             <li>
