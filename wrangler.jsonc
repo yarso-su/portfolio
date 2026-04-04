@@ -1,19 +1,30 @@
 {
-  "compatibility_date": "2026-03-17",
-  "compatibility_flags": ["global_fetch_strictly_public"],
-  "name": "portfolio",
-  "main": "@astrojs/cloudflare/entrypoints/server",
-  "assets": {
-    "directory": "./dist",
-    "binding": "ASSETS"
-  },
-  "observability": {
-    "enabled": true
-  },
-  "kv_namespaces": [
-    {
-      "binding": "RATE_LIMIT",
-      "id": "b98a9c9090b245f3ac092dbb3d889ea7"
-    }
-  ]
+	"compatibility_date": "2026-03-17",
+	"compatibility_flags": [
+		"global_fetch_strictly_public"
+	],
+	"name": "portfolio",
+	"main": "@astrojs/cloudflare/entrypoints/server",
+	"assets": {
+		"directory": "./dist",
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"kv_namespaces": [
+		{
+			"binding": "RATE_LIMIT",
+			"id": "b98a9c9090b245f3ac092dbb3d889ea7"
+		}
+	],
+	"routes": [
+		{
+			"pattern": "yarso.dev",
+			"zone_name": "yarso.dev",
+			"custom_domain": true
+		}
+	],
+	"workers_dev": false,
+	"preview_urls": false
 }
