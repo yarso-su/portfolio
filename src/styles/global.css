@@ -34,7 +34,7 @@
 
 @layer base {
   * {
-    @apply border-zinc-300 text-zinc-700;
+    @apply border-zinc-300 text-zinc-700 outline-zinc-300;
   }
 
   body {
@@ -48,5 +48,21 @@
   h5,
   h6 {
     @apply m-0 p-0 text-black;
+  }
+
+  summary {
+    @apply text-2xl font-semibold tracking-tight text-black;
+  }
+
+  summary::marker {
+    content: '+ ';
+  }
+
+  details[open] summary::marker {
+    content: '- ';
+  }
+
+  details p {
+    @apply mt-3 pl-2 text-sm sm:text-lg md:text-xl;
   }
 }

@@ -1,6 +1,5 @@
-export type Project = {
-  title: string
-  description: string
+export type Craft = {
+  label: string
   link: string
-  imageKey?: string
+  imageKey: 'npm' | 'github' | 'rust' | 'worker'
 }

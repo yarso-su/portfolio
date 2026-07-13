@@ -12,9 +12,9 @@ const cover = await getImage({
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href
 
-const title = 'Building Fast, Modern Apps - Yarso. Software Developer'
-const description =
-  'Full-stack developer specializing in high-performance web applications with Svelte, Astro, and Node.js. Creator of open-source NPM packages and technical writer.'
+const TITLE = 'Alesandro — Software Developer & Open Source Enthusiast'
+const DESCRIPTION =
+  'Software developer crafting fast, modern applications with Go, Rust, JavaScript, and open-source tools. Explore my projects, experiments, and technical writing.'
 ---
 
 <head>
@@ -35,25 +35,25 @@ const description =
 
   <link rel="manifest" href="/site.webmanifest" />
 
-  <title>{title}</title>
-  <meta name="title" content={title} />
-  <meta name="description" content={description} />
+  <title>{TITLE}</title>
+  <meta name="title" content={TITLE} />
+  <meta name="description" content={DESCRIPTION} />
 
   <link rel="canonical" href={canonical} />
   <link rel="sitemap" href="/sitemap-index.xml" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content={canonical} />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
+  <meta property="og:title" content={TITLE} />
+  <meta property="og:description" content={DESCRIPTION} />
   <meta property="og:image" content={new URL(cover.src, Astro.site)} />
 
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:site" content="@yeremi_rrios" />
   <meta property="twitter:creator" content="@yeremi_rrios" />
   <meta property="twitter:url" content={Astro.url} />
-  <meta property="twitter:title" content={title} />
-  <meta property="twitter:description" content={description} />
+  <meta property="twitter:title" content={TITLE} />
+  <meta property="twitter:description" content={DESCRIPTION} />
   <meta property="twitter:image" content={new URL(cover.src, Astro.site)} />
 
   <script is:inline type="application/ld+json" set:html={JSON.stringify({

@@ -1,147 +1,73 @@
 ---
-import PackageCard from '@components/PackageCard.astro'
-import ProjectCard from '@components/ProjectCard.astro'
-import SocialItem from '@components/SocialNetworkLink.astro'
-import { type Project } from '@lib/types'
+import CraftCard from '@components/CraftCard.astro'
+import { type Craft } from '@lib/types'
 
-export const projects: Array<Project> = [
+export const crafts: Array<Craft> = [
   {
-    title: 'Technical spanish blog',
-    description:
-      'Personal blog covering software engineering and programming concepts.',
-    link: 'https://es.yarso.dev',
-    imageKey: 'blog'
+    label: 'dotfiles',
+    link: 'https://github.com/yarso-su/dotfiles',
+    imageKey: 'github'
   },
   {
-    title: 'Jollaadmin',
-    description:
-      'Microservices-based system, internal data management and monitoring.',
-    link: 'https://residenciallajolla.net',
-    imageKey: 'jollaadmin'
+    label: 'lates',
+    link: 'https://crates.io/crates/lates',
+    imageKey: 'rust'
   },
   {
-    title: 'Cusmer',
-    description:
-      'Web application for managing customers as an independent contractor.',
+    label: 'zoho-mail',
+    link: 'https://github.com/yarso-su/zoho-mail',
+    imageKey: 'npm'
+  },
+  {
+    label: 'jsnpar',
+    link: 'https://crates.io/crates/jsnpar',
+    imageKey: 'rust'
+  },
+  {
+    label: 'astro-theme-toggler',
+    link: 'https://github.com/yarso-su/astro-theme-toggler',
+    imageKey: 'npm'
+  },
+  {
+    label: 'Portfolio',
+    link: 'https://yarso.dev',
+    imageKey: 'worker'
+  },
+  {
+    label: 'astro-dropdown',
+    link: 'https://github.com/yarso-su/astro-dropdown',
+    imageKey: 'npm'
+  },
+  {
+    label: 'osm-bbox',
+    link: 'https://crates.io/crates/osm-bbox',
+    imageKey: 'rust'
+  },
+  {
+    label: 'systemctl-manager',
+    link: 'https://crates.io/crates/systemctl-manager',
+    imageKey: 'rust'
+  },
+  {
+    label: 'cusmer',
     link: 'https://github.com/yarso-su/cusmer',
     imageKey: 'github'
-  }
-]
-
-export const packages: Array<Project> = [
-  {
-    title: 'astro-theme-toggler',
-    description: 'Lightweight theme toggler utility.',
-    link: 'https://github.com/yarso-su/astro-theme-toggler'
   },
   {
-    title: 'astro-dropdown',
-    description: 'Customizable dropdown component.',
-    link: 'https://github.com/yarso-su/astro-dropdown'
-  },
-  {
-    title: 'zoho-mail',
-    description: 'Utility for sending emails through Zoho API.',
-    link: 'https://github.com/yarso-su/zoho-mail'
-  }
-]
-
-export const crates: Array<Project> = [
-  {
-    title: 'jsnpar',
-    description: 'JSON parser implementation',
-    link: 'https://crates.io/crates/jsnpar'
-  },
-  {
-    title: 'osm-bbox',
-    description: 'OSM bounding box',
-    link: 'https://crates.io/crates/osm-bbox'
-  },
-  {
-    title: 'systemctl-manager',
-    description: 'Systemctl TUI',
-    link: 'https://crates.io/crates/systemctl-manager'
+    label: 'Jollaadmin',
+    link: 'https://residenciallajolla.net',
+    imageKey: 'worker'
   }
 ]
 ---
 
-<section
-  class="mx-auto mt-12 grid w-[90%] grid-cols-1 gap-4 sm:mt-16 md:grid-cols-[2fr_1fr] 2xl:w-[60%]"
->
-  <div class="grid grid-rows-[1fr_auto] gap-4">
-    <ul class="grid grid-rows-3 gap-2">
-      {projects.map(project => <ProjectCard content={project} />)}
-    </ul>
-    <section>
-      <h3
-        class="inline-flex items-end gap-2 text-lg leading-[1.1] font-semibold tracking-tight lg:text-2xl"
-      >
-        <img src="/images/cargo.png" alt="NPM Icon" width="24" height="24" />
-        <span class="text-black"> Crates.io </span>
-      </h3>
-      <ul class="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3">
-        {
-          crates.map(crate => (
-            <li>
-              <PackageCard content={crate} horizontal />
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-  </div>
-  <div class="grid grid-rows-[auto_1fr] gap-4">
-    <section>
-      <h3
-        class="inline-flex items-end gap-2 text-lg leading-[1.1] font-semibold tracking-tight lg:text-2xl"
-      >
-        <img src="/logos/npm.svg" alt="NPM Icon" width="24" height="24" />
-        <span class="text-black"> NPM Packages </span>
-      </h3>
-      <ul class="mt-2 flex max-h-75 flex-col gap-2 overflow-y-auto">
-        {
-          packages.map(project => (
-            <li>
-              <PackageCard content={project} />
-            </li>
-          ))
-        }
-      </ul>
-    </section>
-    <section class="grid grid-rows-[auto_1fr] gap-2">
-      <h3
-        class="text-lg leading-[1.1] font-semibold tracking-tight text-black lg:text-2xl"
-      >
-        Social
-      </h3>
-      <ul class="grid grid-rows-3 gap-2">
-        <li>
-          <SocialItem
-            link="https://github.com/yarso-su"
-            text="Github (yarso-su)"
-          />
-        </li>
-        <li>
-          <SocialItem
-            link="https://www.linkedin.com/in/yeremi-rrios/"
-            text="LinkedIn (yeremi-rrios)"
-          />
-        </li>
-        <li>
-          <SocialItem
-            link="https://x.com/yeremi_rrios"
-            text="Twitter/X (yeremi_rrios)"
-          />
-        </li>
-      </ul>
-    </section>
-  </div>
-</section>
-<div class="mx-auto mt-6 flex w-[90%] items-center justify-center 2xl:w-[60%]">
-  <a
-    href="#contact-form"
-    class="text-base text-black transition-opacity duration-200 hover:opacity-60 md:text-lg"
+<section class="mx-auto mt-8 w-[90%] sm:mt-12 2xl:w-[60%]">
+  <h2
+    class="mb-3 scroll-m-20 text-2xl font-semibold tracking-tight transition-colors"
   >
-    Want to collaborate? <span class="text-contrast">Reach out</span>
-  </a>
-</div>
+    🛠️ Crafts and Websites
+  </h2>
+  <ul class="flex flex-wrap gap-2">
+    {crafts.map(craft => <CraftCard craft={craft} />)}
+  </ul>
+</section>

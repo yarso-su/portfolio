@@ -9,7 +9,7 @@ const { class: className, ...props }: Props = Astro.props
 <button
   class={cn(
     className,
-    'border p-2 rounded-sm bg-secondary hover:bg-primary transition-colors duration-200'
+    'border p-2 rounded-sm outline-0 hover:outline-2 transition-[outline-width] duration-75 bg-secondary'
   )}
   {...props}
 >

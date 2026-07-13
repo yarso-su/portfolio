@@ -1,0 +1,30 @@
+---
+import { cn } from '@lib/utils'
+import type { Craft } from '@lib/types'
+
+interface Props {
+  craft: Craft
+  horizontal?: boolean
+}
+
+const { craft, horizontal = false } = Astro.props
+---
+
+<article
+  class={cn('rounded-sm border outline-0 hover:outline-2 transition-[outline-width] duration-75 bg-primary w-fit', horizontal ? 'h-full' : '')}
+>
+  <h3>
+    <a
+      href={craft.link}
+      target="_blank"
+      referrerpolicy="no-referrer"
+      rel="noopener noreferrer nofollow"
+      class="inline-flex justify-between p-3 items-center gap-2"
+    >
+      <span class="text-sm text-black sm:text-base">
+        {craft.label}
+      </span>
+      {craft.imageKey && (<img src=`/logos/${craft.imageKey}.svg` alt="NPM Icon" width="18" height="18" />)}
+    </a>
+  </h3>
+</article>

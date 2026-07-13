@@ -13,27 +13,27 @@
     "generate-types": "wrangler types"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.1.4",
-    "@astrojs/ts-plugin": "^1.10.7",
-    "@lucide/astro": "^1.7.0",
-    "@tailwindcss/vite": "^4.2.2",
-    "astro": "^6.1.1",
+    "@astrojs/cloudflare": "^14.1.2",
+    "@astrojs/ts-plugin": "^1.10.10",
+    "@lucide/astro": "^1.24.0",
+    "@tailwindcss/vite": "^4.3.2",
+    "astro": "^7.0.7",
     "clsx": "^2.1.1",
-    "tailwind-merge": "^3.5.0",
-    "tailwindcss": "^4.2.2",
-    "wrangler": "^4.78.0"
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.2",
+    "wrangler": "^4.110.0"
   },
   "overrides": {
     "vite": "^7"
   },
   "devDependencies": {
-    "@typescript-eslint/parser": "^8.57.2",
-    "eslint": "^10.1.0",
-    "eslint-plugin-astro": "^1.6.0",
+    "@typescript-eslint/parser": "^8.63.0",
+    "eslint": "^10.7.0",
+    "eslint-plugin-astro": "^1.7.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "prettier": "3.8.1",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "0.7.2",
-    "typescript": "^6.0.2"
+    "typescript": "^6.0.3"
   }
 }
