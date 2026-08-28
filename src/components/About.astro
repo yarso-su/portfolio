@@ -3,75 +3,100 @@ import { Image } from 'astro:assets'
 import Landscape from '@assets/landscape.jpeg'
 ---
 
-<section class="mx-auto mt-8 w-[90%] sm:mt-12 2xl:w-[60%]">
-  <h2
-    class="mb-3 scroll-m-20 text-3xl font-semibold tracking-tight transition-colors"
-  >
-    🗃️ About me?
-  </h2>
-  <p class="text-sm sm:text-lg md:text-xl">
-    I started programming in 2018 with <strong>PHP</strong> and <strong
-      >C++</strong
-    > through school programs. I switched to <strong>JavaScript</strong> to pursue
-    web development. I touched <strong>Java</strong> and <strong>C#</strong> because
-    of college (against my will).<br /><br />
-    But in the last few years, I've been enjoying using <strong>C</strong>, <strong
+<section class="mx-auto mt-8 w-[90%] sm:mt-12 md:text-lg 2xl:w-[60%]">
+  <h2 class="text-xl md:text-3xl">🗃️ About me?</h2>
+  <p class="mt-3">
+    I started programming in 2018 with PHP and C++ through school programs.
+    Later, I switched to JavaScript to pursue web development. I also worked
+    with Java and C# because of college (not exactly by choice).
+  </p>
+  <p class="mt-4">
+    Over the last few years, I have been enjoying working with <strong
       >Go</strong
-    >, and <strong>Rust</strong>.
-    <br /><br />
-    I feel comfortable designing and implementing product-oriented software: scripting,
-    automation, CLI development, database repositories, REST APIs, and services.
+    >, <strong>Rust</strong>, and <strong>C</strong>.
   </p>
 
-  <div class="mt-10">
-    <Image
-      src={Landscape}
-      alt="Landscape"
-      class="mx-auto rounded-sm border"
-      width={360}
-    />
-    <p class="mt-3 w-full text-center text-xs opacity-80 sm:text-sm">
-      Mandatory scenery picture. Otherwise this page becomes a wall of text.
-    </p>
+  <div class="mt-8 grid grid-cols-1 gap-4 md:grid-cols-[360px_1fr]">
+    <div>
+      <Image
+        src={Landscape}
+        alt="Landscape"
+        class="mx-auto rounded-sm border"
+      />
+      <p
+        class="mt-3 w-full text-center text-xs opacity-80 sm:text-sm md:text-left"
+      >
+        Mandatory scenery picture.
+      </p>
+    </div>
+    <div>
+      <h3 class="md:text-2xl">Programming Languages & Web Frameworks</h3>
+      <p class="mt-3">
+        I have worked with a fair number of programming languages (I did not
+        list all of them). I do not have a favorite; most of the time, I choose
+        whichever language I consider the best fit for the task at hand.
+        However, I enjoy using each of them in their own way.
+      </p>
+      <p class="mt-4">
+        I enjoy understanding their ergonomics and the reasoning behind their
+        design decisions.
+      </p>
+    </div>
   </div>
 
-  <details open class="mt-8" name="info">
-    <summary> Programming Languages </summary>
-    <p>
-      I have touched a (IMO) fair number of programming languages (I didn't list
-      all of them). I don't have a favorite; most of the time, I use whichever
-      one I consider the best fit for the task at hand. But I enjoy using all of
-      them in their own way.<br /><br />
-      I enjoy understanding their ergonomics and the reasons behind their design decisions.
-    </p>
-  </details>
+  <p class="mt-6">
+    That said, putting aside the romanticism, when it comes to building useful
+    things, I prefer to be practical.
+  </p>
 
-  <details class="mt-4" name="info">
-    <summary> Frameworks </summary>
-    <p>
-      Over time, I've also touched a few different frameworks. I frequently use <strong
-        >Next.js</strong
-      >, <strong>SvelteKit</strong>, and <strong>Astro</strong> for web development.<br
-      /><br />
-      <strong>Express</strong> and <strong>Fastify</strong> were common tools that
-      I used for a long time. More recently, I've been preferring <strong
-        >Fiber</strong
-      > (fasthttp), because of Go.
-    </p>
-  </details>
+  <h3 class="mt-4 md:text-2xl">Express? Fastify? Django? Fiber</h3>
+  <p class="mt-3">
+    I know all of them are from different languages and have "different" goals.
+    But Go's design makes your life easier. At the beginning, declaring
+    public/private visibility using uppercase or lowercase letters seems weird,
+    but after a few days, you understand that it is actually an incredibly
+    simple mechanism.
+  </p>
+  <p class="mt-4">
+    No extra public/private keywords. Naming conventions become a little bit
+    odd, but you can survive it.
+  </p>
+  <p class="mt-4">
+    The package system is extremely explicit. Stick with some basic design
+    principles, and you'll be able to write useful deep modules with ease.
+    Almost any design decision becomes explicit and is always present in your
+    code, which is something important when it comes to maintainability.
+  </p>
 
-  <details class="mt-4" name="info">
-    <summary> Service Development </summary>
-    <p>
-      In general, I've been working with REST APIs: from SQL query design and
-      third-party library integration to communication between services,
-      authentication flow design, and endpoint handler implementation.
-      <br /><br />
-      I'm familiar with <strong>Docker</strong>, <strong>Linux</strong>, most
-      package managers, <strong>Git</strong>, and cloud providers.
-    </p>
-  </details>
+  <h3 class="mt-4 md:text-2xl">Is Go the best programming language?</h3>
+  <p class="mt-3">
+    Best language? That's nothing more than a myth. Though, since I mainly take
+    care of backend stuff, Go is performant enough, easy to read, easy to write,
+    and easy to maintain.
+  </p>
+
+  <div class="mt-12 grid grid-cols-1 gap-4 md:grid-cols-[1fr_240px]">
+    <div>
+      <h2 class="text-xl md:text-3xl">Technical Focus</h2>
+      <p class="mt-3">
+        My work has primarily involved backend development with REST APIs,
+        covering areas such as SQL query design, third-party library
+        integration, service-to-service communication, authentication flows, and
+        other backend development tasks.
+      </p>
+      <p class="mt-4">
+        I am also familiar with Docker, Linux, scripting, package managers, Git,
+        and cloud providers.
+      </p>
+    </div>
+
+    <div>
+      <img
+        src="code-contribution.svg"
+        alt="undraw code contribution"
+        class="mx-auto"
+        width={200}
+      />
+    </div>
+  </div>
 </section>
-<!-- I enjoy understanding the ergonomics that -->
-<!--     programming languages provide, and the reasons behind their design -->
-<!--     decisions. -->
