@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro'
 import { z } from 'astro/zod'
-import { RESEND_API_KEY } from 'astro:env/server'
+import { RESEND_API_KEY, DESTINATION_EMAIL } from 'astro:env/server'
 import { env } from 'cloudflare:workers'
 
 const sendMessageSchema = z.object({
@@ -66,7 +66,7 @@ export const POST: APIRoute = async ({ request }) => {
       body: JSON.stringify({
         from: `Portfolio <portfolio@apps.yarso.dev>`,
         subject: 'Contact Form',
-        to: ['contact@yarso.dev'],
+        to: [DESTINATION_EMAIL],
         html: `
 <!DOCTYPE html>
 <html>

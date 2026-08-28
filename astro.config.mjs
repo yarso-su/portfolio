@@ -30,6 +30,11 @@ export default defineConfig({
         context: 'server',
         access: 'secret',
         optional: false
+      }),
+      DESTINATION_EMAIL: envField.string({
+        context: 'server',
+        access: 'public',
+        optional: false
       })
     }
   }
