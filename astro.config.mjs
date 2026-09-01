@@ -5,6 +5,8 @@ import cloudflare from '@astrojs/cloudflare'
 
 import tailwindcss from '@tailwindcss/vite'
 
+import sitemap from '@astrojs/sitemap';
+
 // todo: Set "site"
 
 // https://astro.build/config
@@ -37,5 +39,7 @@ export default defineConfig({
         optional: false
       })
     }
-  }
+  },
+
+  integrations: [sitemap()]
 })
